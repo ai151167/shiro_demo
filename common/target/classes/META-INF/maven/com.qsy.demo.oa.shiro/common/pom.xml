@@ -5,7 +5,12 @@
     <artifactId>parent</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <groupId>com.qsy.demo.oa.shiro</groupId>
   <artifactId>common</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <dependencies>
+  	<dependency>
+  		<groupId>com.qsy.demo.oa.shiro</groupId>
+  		<artifactId>entity</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+  	</dependency>
+  </dependencies>
 </project>
