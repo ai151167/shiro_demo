@@ -7,10 +7,12 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.qsy.demo.oa.shiro.commonparam.GoodsInfoOperation;
 import com.qsy.demo.oa.shiro.commonparam.GoodsInfoParam;
 import com.qsy.demo.oa.shiro.entity.GoodsInfo;
-import com.qsy.demo.oa.shiro.entity.GoodsInfoExample;
-import com.qsy.demo.oa.shiro.entity.mapper.GoodsInfoMapper;
+import com.qsy.demo.oa.shiro.entity.GoodsSortRelation;
+import com.qsy.demo.oa.shiro.mapper.GoodsInfoMapper;
+import com.qsy.demo.oa.shiro.mapper.GoodsSortRelationMapper;
 import com.qsy.demo.oa.shiro.service.IGoodsInfoService;
 
 @Service("goodsInfoService")
@@ -18,6 +20,9 @@ public class GoodsInfoServiceImpl implements IGoodsInfoService {
 
 	@Autowired
 	private GoodsInfoMapper goodsInfoMapper;
+	
+	@Autowired
+	private GoodsSortRelationMapper goodsSortRelationMapper;
 	
 	/**
 	 * 集合
@@ -56,5 +61,72 @@ public class GoodsInfoServiceImpl implements IGoodsInfoService {
 			 pages =1;
 		 }
 		return pages;
+	}
+
+	/**
+	 * 添加信息
+	 */
+	@Override
+	public String addGoodsInfo(GoodsInfoOperation goodsInfo) {
+		Integer sortId = goodsInfo.getSortId();
+		Integer goodsId = goodsInfoMapper.addGoodsInfo(goodsInfo);
+		if(goodsId>0) {
+			GoodsSortRelation rel = new GoodsSortRelation();
+			rel.setGoodsId(goodsId);
+			rel.setSortId(sortId);
+			rel.setGoodsSortState("01");
+			goodsSortRelationMapper.insert(rel);
+			return "添加成功!";
+		}
+		return "添加失败!";
+	}
+
+	/**
+	 * 获取详情
+	 *	QSY
+	 * @param goodsId
+	 * @return
+	 */
+	@Override
+	public GoodsInfoOperation goodsInfo(Integer goodsId) {
+		return goodsInfoMapper.goodsInfo(goodsId);
+	}
+
+	/**
+	 * 修改信息
+	 *	QSY
+	 * @param goodsInfo
+	 * @return
+	 */
+	
+	@Override
+	public String updateGoodsInfo(GoodsInfoOperation goodsInfo) {
+		goodsInfoMapper.updateGoodsInfo(goodsInfo);
+		if(goodsInfo.getSortId()!=null&&!"".equals(goodsInfo.getSortId().toString())) {
+			GoodsSortRelation rel = new GoodsSortRelation();
+			rel.setGoodsId(goodsInfo.getGoodsId());
+			rel.setSortId(goodsInfo.getSortId());
+			goodsSortRelationMapper.updateByPrimaryKeySelective(rel);
+		}
+		return "修改完成!";
+	}
+
+	/**
+	 * 删除信息
+	 *	QSY
+	 * @param goodsId
+	 * @return
+	 */
+	@Override
+	public String deleteGoodsInfo(Integer goodsId) {
+		String result = "删除失败!";
+		GoodsInfo gInfo = new GoodsInfo();
+		gInfo.setGoodsId(goodsId);
+		gInfo.setGoodsState("00");
+		int i = goodsInfoMapper.updateByPrimaryKeySelective(gInfo);
+		if(i>0) {
+			result = "删除成功!";
+		}
+		return result;
 	}
 }
