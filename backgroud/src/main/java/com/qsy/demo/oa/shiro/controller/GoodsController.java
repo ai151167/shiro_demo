@@ -22,7 +22,12 @@ public class GoodsController {
 	public String goodsInfo() {
 		return "goods/goodsList";
 	}
-
+	
+	@RequestMapping("/list")
+	public String goods() {
+		return "goods/goods";
+	}
+	
 	@ResponseBody
 	@RequestMapping("/goodsInfoList")
 	public Map<String, Object> goodsInfoList(GoodsInfoParam param) {

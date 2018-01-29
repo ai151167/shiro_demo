@@ -25,7 +25,7 @@
 			<h3 class="text-muted">goodsInfo</h3>
 			<nav>
 				<ul class="nav nav-justified">
-					<li class="active"><a href="#">Home</a></li>
+					<li class="active"><a href="goodsInfo/list">Home</a></li>
 					<li><a href="#">Projects</a></li>
 					<li><a href="#">Services</a></li>
 					<li><a href="#">Downloads</a></li>
@@ -36,53 +36,9 @@
 		</div>
 
 		<!-- Jumbotron -->
-		<div class="jumbotron">
-			<h2>1</h2>
-			<div class="row">
-				<div class="col-md-12">
-					<table class="table table-hover">
-						<thead>
-							<th>1</th>
-							<th>1</th>
-							<th>1</th>
-						</thead>
-						<tbody>
-							<tr>
-								<td>1</td>
-								<td>1</td>
-								<td>1</td>
-								<td>1</td>
-								<td>1</td>
-							</tr>
-							<tr>
-								<td>1</td>
-								<td>1</td>
-								<td>1</td>
-							</tr>
-							<tr>
-								<td>1</td>
-								<td>1</td>
-								<td>1</td>
-							</tr>
-						</tbody>
-						<tfoot>
-							<tr>
-								<td>1</td>
-
-							</tr>
-						</tfoot>
-					</table>
-				</div>
-
-			</div>
-
-			<p>
-				<a class="btn btn-lg btn-success" href="#" role="button">Get
-					started today</a>
-			</p>
-		</div>
-
-
+		
+		<Iframe src="goodsInfo/list"; width="100%" height="1000" scrolling="no" frameborder="0"></iframe>
+			
 		<!-- Site footer -->
 		<footer class="footer">
 			<p>&copy; 2016 Company, Inc.</p>
