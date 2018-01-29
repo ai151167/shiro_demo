@@ -1,6 +1,5 @@
 package com.qsy.demo.oa.shiro.controller;
 
-import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,31 +9,48 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.qsy.demo.oa.shiro.commonparam.GoodsInfoOperation;
 import com.qsy.demo.oa.shiro.commonparam.GoodsInfoParam;
-import com.qsy.demo.oa.shiro.entity.GoodsInfo;
 import com.qsy.demo.oa.shiro.service.IGoodsInfoService;
 
 @Controller
-@RequestMapping("goodsInfo")
+@RequestMapping("/goodsInfo")
 public class GoodsController {
-	
+
 	@Autowired
 	private IGoodsInfoService goodsInfoService;
-	
+
 	@RequestMapping("/goods")
 	public String goodsInfo() {
 		return "goods/goodsList";
 	}
-	
+
 	@ResponseBody
 	@RequestMapping("/goodsInfoList")
 	public Map<String, Object> goodsInfoList(GoodsInfoParam param) {
-		Map<String, Object> map =  goodsInfoService.goodsInfoList(param);
+		Map<String, Object> map = goodsInfoService.goodsInfoList(param);
 		return map;
 	}
-	
+
+	@ResponseBody
+	@RequestMapping("/addGoodsInfo")
 	public String addGoodsInfo(GoodsInfoOperation goodsInfo) {
-		return null;
-		
+		return goodsInfoService.addGoodsInfo(goodsInfo);
 	}
-	
+
+	@ResponseBody
+	@RequestMapping("/goodsInfo")
+	public GoodsInfoOperation goodsInfo(Integer goodsId) {
+		return goodsInfoService.goodsInfo(goodsId);
+	}
+
+	@ResponseBody
+	@RequestMapping("/updateGoodsInfo")
+	public String updateGoodsInfo(GoodsInfoOperation goodsInfo) {
+		return goodsInfoService.updateGoodsInfo(goodsInfo);
+	}
+
+	@ResponseBody
+	@RequestMapping("/deleteGoodsInfo")
+	public String deleteGoodsInfo(Integer goodsId) {
+		return goodsInfoService.deleteGoodsInfo(goodsId);
+	}
 }
