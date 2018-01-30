@@ -1,6 +1,8 @@
 package com.qsy.demo.oa.shiro.controller;
 
 
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -31,8 +33,12 @@ public class GoodsController {
 	
 	@RequestMapping("/goodsInfoList")
 	public String goodsInfoList(GoodsInfoParam param,ModelMap map) {
-		map = goodsInfoService.goodsInfoList(param);
-		System.out.println(map.get("pages"));
+		System.out.println("11111");
+		Map<String,Object> result = goodsInfoService.goodsInfoList(param);
+		map.put("goodsList", result.get("goodsInfos"));
+		map.put("count", result.get("count"));
+		map.put("pages", result.get("pages"));
+		System.out.println(result.get("pages"));
 		return "goods/goods";
 	}
 

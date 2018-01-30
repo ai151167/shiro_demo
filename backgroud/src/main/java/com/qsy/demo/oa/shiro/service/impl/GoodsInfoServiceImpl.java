@@ -1,6 +1,8 @@
 package com.qsy.demo.oa.shiro.service.impl;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,9 +29,11 @@ public class GoodsInfoServiceImpl implements IGoodsInfoService {
 	 * 集合
 	 */
 	@Override
-	public ModelMap goodsInfoList(GoodsInfoParam param) {
-		ModelMap result = new ModelMap();
+	public Map<String,Object> goodsInfoList(GoodsInfoParam param) {
+		System.out.println("2222");
+		Map<String,Object> result = new HashMap<>();
 		List<GoodsInfo> goodsInfos =  goodsInfoMapper.selectByGoodsCondition(param);
+		System.out.println("3333");
 		Integer count = count(param);
 		Integer pages =pages(count, param.getPageSize());
 		result.put("goodsInfos", goodsInfos);
