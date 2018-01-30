@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -18,43 +19,53 @@
 <link href="/css/zTreeStyle/zTreeStyle.css" rel="stylesheet">
 
 </head>
-<body height="1000">
+<body>
 	<div class="jumbotron" >
-		<h2>1</h2>
 		<div class="row">
+		<div class="col-md-4 col-md-offset-0">
+		<h3>列表信息</h3>
+		</div>
+		<div class="col-md-4 col-md-offset-10">
+		<h4>列表信息</h4>
+		</div>
 			<div class="col-md-12">
 				<table class="table table-hover">
 					<thead>
-						<th>1</th>
-						<th>1</th>
-						<th>1</th>
+						<th>名称</th>
+						<th>描述</th>
+						<th>图片</th>
+						<th>数量</th>
+						<th>价格</th>
+						<th>分类</th>
+						<th>状态</th>
+						<th>操作</th>
 					</thead>
 					<tbody>
-						<tr>
-							<td>1</td>
-							<td>1</td>
-							<td>1</td>
-							<td>1</td>
-							<td>1</td>
-						</tr>
-						<tr>
-							<td>1</td>
-							<td>1</td>
-							<td>1</td>
-						</tr>
-						<tr>
-							<td>1</td>
-							<td>1</td>
-							<td>1</td>
-						</tr>
+					<c:if test="${not empty goodsInfos}">
+						<c:forEach items="${goodsInfos}" var="goods">
+							<tr>
+								<td>${goods.goodsId}</td>
+								<td>${goods.goodsName}</td>
+								<td>${goods.goodsDesc}</td>
+								<td>${goods.goodsImage}</td>
+								<td>${goods.goodsCount}</td>
+								<td>${goods.goodsPrice}</td>
+								<td>${goods.SortName}</td>
+								<td>${goods.goodsState}</td>
+								<td>1</td>
+							</tr>
+						</c:forEach>
+					</c:if>
 					</tbody>
 					<tfoot>
 						<tr>
 							<td>1</td>
-
+							
 						</tr>
 					</tfoot>
 				</table>
+				<input type="text" id="count" value="${count}">
+				<input type="text" id="pages" value="${pages}">
 			</div>
 
 		</div>

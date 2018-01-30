@@ -1,18 +1,17 @@
 package com.qsy.demo.oa.shiro.service.impl;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.ModelMap;
 
 import com.qsy.demo.oa.shiro.commonparam.GoodsInfoOperation;
 import com.qsy.demo.oa.shiro.commonparam.GoodsInfoParam;
 import com.qsy.demo.oa.shiro.entity.GoodsInfo;
 import com.qsy.demo.oa.shiro.entity.GoodsSortRelation;
-import com.qsy.demo.oa.shiro.mapper.GoodsInfoMapper;
-import com.qsy.demo.oa.shiro.mapper.GoodsSortRelationMapper;
+import com.qsy.demo.oa.shiro.entity.mapper.GoodsInfoMapper;
+import com.qsy.demo.oa.shiro.entity.mapper.GoodsSortRelationMapper;
 import com.qsy.demo.oa.shiro.service.IGoodsInfoService;
 
 @Service("goodsInfoService")
@@ -28,8 +27,8 @@ public class GoodsInfoServiceImpl implements IGoodsInfoService {
 	 * 集合
 	 */
 	@Override
-	public Map<String, Object> goodsInfoList(GoodsInfoParam param) {
-		Map<String, Object> result = new HashMap<>();
+	public ModelMap goodsInfoList(GoodsInfoParam param) {
+		ModelMap result = new ModelMap();
 		List<GoodsInfo> goodsInfos =  goodsInfoMapper.selectByGoodsCondition(param);
 		Integer count = count(param);
 		Integer pages =pages(count, param.getPageSize());

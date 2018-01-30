@@ -1,13 +1,14 @@
 package com.qsy.demo.oa.shiro.service;
 
-import java.util.Map;
+
+import org.springframework.ui.ModelMap;
 
 import com.qsy.demo.oa.shiro.commonparam.GoodsInfoOperation;
 import com.qsy.demo.oa.shiro.commonparam.GoodsInfoParam;
 
 public interface IGoodsInfoService {
 
-	Map<String, Object> goodsInfoList(GoodsInfoParam param);
+	ModelMap goodsInfoList(GoodsInfoParam param);
 
 	String addGoodsInfo(GoodsInfoOperation goodsInfo);
 

@@ -4,6 +4,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -28,11 +29,12 @@ public class GoodsController {
 		return "goods/goods";
 	}
 	
-	@ResponseBody
+	
 	@RequestMapping("/goodsInfoList")
-	public Map<String, Object> goodsInfoList(GoodsInfoParam param) {
-		Map<String, Object> map = goodsInfoService.goodsInfoList(param);
-		return map;
+	public String goodsInfoList(GoodsInfoParam param,ModelMap map) {
+		map = goodsInfoService.goodsInfoList(param);
+		System.out.println(map.get("pages"));
+		return "goods/goods";
 	}
 
 	@ResponseBody

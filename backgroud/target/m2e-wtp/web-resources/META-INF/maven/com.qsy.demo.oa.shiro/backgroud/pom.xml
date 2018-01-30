@@ -176,23 +176,14 @@
 
 		<dependency>
 			<groupId>com.qsy.demo.oa.shiro</groupId>
-			<artifactId>mapper</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
-		<dependency>
-			<groupId>com.qsy.demo.oa.shiro</groupId>
 			<artifactId>common</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>
-			<groupId>org.aspectj</groupId>
-			<artifactId>aspectjrt</artifactId>
+			<groupId>com.qsy.demo.oa.shiro</groupId>
+			<artifactId>mapper</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
-		<dependency>
-			<groupId>org.aspectj</groupId>
-			<artifactId>aspectjweaver</artifactId>
-		</dependency>
-
 	</dependencies>
 	<!-- 添加tomcat插件 -->
 	<build>
@@ -207,4 +198,5 @@
 			</plugin>
 		</plugins>
 	</build>
+	
 </project>

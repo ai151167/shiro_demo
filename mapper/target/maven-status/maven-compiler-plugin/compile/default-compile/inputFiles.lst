@@ -1,8 +1,8 @@
-F:\demo\Repository\shiro_demo\mapper\src\main\java\com\qsy\demo\oa\shiro\mapper\GoodsInfoMapper.java
-F:\demo\Repository\shiro_demo\mapper\src\main\java\com\qsy\demo\oa\shiro\mapper\PermissionMapper.java
-F:\demo\Repository\shiro_demo\mapper\src\main\java\com\qsy\demo\oa\shiro\mapper\GoodsSortRelationMapper.java
-F:\demo\Repository\shiro_demo\mapper\src\main\java\com\qsy\demo\oa\shiro\mapper\RolePermissionRelationMapper.java
-F:\demo\Repository\shiro_demo\mapper\src\main\java\com\qsy\demo\oa\shiro\mapper\RoleMapper.java
-F:\demo\Repository\shiro_demo\mapper\src\main\java\com\qsy\demo\oa\shiro\mapper\UserRoleRelationMapper.java
-F:\demo\Repository\shiro_demo\mapper\src\main\java\com\qsy\demo\oa\shiro\mapper\SortInfoMapper.java
-F:\demo\Repository\shiro_demo\mapper\src\main\java\com\qsy\demo\oa\shiro\mapper\UserMapper.java
+F:\demo\Repository\shiro_demo\mapper\src\main\java\com\qsy\demo\oa\shiro\entity\mapper\RolePermissionRelationMapper.java
+F:\demo\Repository\shiro_demo\mapper\src\main\java\com\qsy\demo\oa\shiro\entity\mapper\SortInfoMapper.java
+F:\demo\Repository\shiro_demo\mapper\src\main\java\com\qsy\demo\oa\shiro\entity\mapper\GoodsSortRelationMapper.java
+F:\demo\Repository\shiro_demo\mapper\src\main\java\com\qsy\demo\oa\shiro\entity\mapper\UserMapper.java
+F:\demo\Repository\shiro_demo\mapper\src\main\java\com\qsy\demo\oa\shiro\entity\mapper\PermissionMapper.java
+F:\demo\Repository\shiro_demo\mapper\src\main\java\com\qsy\demo\oa\shiro\entity\mapper\UserRoleRelationMapper.java
+F:\demo\Repository\shiro_demo\mapper\src\main\java\com\qsy\demo\oa\shiro\entity\mapper\GoodsInfoMapper.java
+F:\demo\Repository\shiro_demo\mapper\src\main\java\com\qsy\demo\oa\shiro\entity\mapper\RoleMapper.java
