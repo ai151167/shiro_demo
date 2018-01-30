@@ -27,7 +27,7 @@
 
 	<!-- springmvc的前端控制器 -->
 	<servlet>
-		<servlet-name>hw-background</servlet-name>
+		<servlet-name>backgroud</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
@@ -36,7 +36,7 @@
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>hw-background</servlet-name>
+		<servlet-name>backgroud</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 

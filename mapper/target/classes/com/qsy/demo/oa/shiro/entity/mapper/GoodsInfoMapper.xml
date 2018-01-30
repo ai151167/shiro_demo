@@ -346,19 +346,19 @@
   		    AND G.GOODS_COUNT = #{goodsCount,jdbcType = BIGINT}
   		</if>
   		<if test="lowCount != null and lowCount != '' ">
-  		    AND G.GOODS_COUNT &gt; #{lowCount,jdbcType = BIGINT}
+  		    AND G.GOODS_COUNT >= #{lowCount,jdbcType = BIGINT}
   		</if>
   		<if test="tallCount != null and tallCount != '' ">
-  		    AND G.GOODS_COUNT &lt; #{tallCount,jdbcType = BIGINT}
+  		    AND G.GOODS_COUNT <= #{tallCount,jdbcType = BIGINT}
   		</if>
   		<if test="goodsPrice != null and goodsPrice != '' ">
   		    AND G.GOODS_PRICE = #{goodsPrice,jdbcType = DOUBLE}
   		</if>
   		<if test="lowPrice != null and lowPrice != '' ">
-  		    AND G.GOODS_PRICE &gt; #{lowPrice,jdbcType = DOUBLE}
+  		    AND G.GOODS_PRICE >= #{lowPrice,jdbcType = DOUBLE}
   		</if>
   		<if test="tallPrice != null and tallPrice != '' ">
-  		    AND G.GOODS_PRICE &lt; #{tallPrice,jdbcType = DOUBLE}
+  		    AND G.GOODS_PRICE <= #{tallPrice,jdbcType = DOUBLE}
   		</if>
   		ORDER BY
   		G.GOODS_ID ASC
@@ -385,19 +385,19 @@
   		    AND G.GOODS_COUNT = #{goodsCount,jdbcType = BIGINT}
   		</if>
   		<if test="lowCount != null and lowCount != '' ">
-  		    AND G.GOODS_COUNT &gt; #{lowCount,jdbcType = BIGINT}
+  		    AND G.GOODS_COUNT >= #{lowCount,jdbcType = BIGINT}
   		</if>
   		<if test="tallCount != null and tallCount != '' ">
-  		    AND G.GOODS_COUNT &lt; #{tallCount,jdbcType = BIGINT}
+  		    AND G.GOODS_COUNT <= #{tallCount,jdbcType = BIGINT}
   		</if>
   		<if test="goodsPrice != null and goodsPrice != '' ">
   		    AND G.GOODS_PRICE = #{goodsPrice,jdbcType = DOUBLE}
   		</if>
   		<if test="lowPrice != null and lowPrice != '' ">
-  		    AND G.GOODS_PRICE &lt; #{lowPrice,jdbcType = DOUBLE}
+  		    AND G.GOODS_PRICE >= #{lowPrice,jdbcType = DOUBLE}
   		</if>
   		<if test="tallPrice != null and tallPrice != '' ">
-  		    AND G.GOODS_PRICE &gt; #{tallPrice,jdbcType = DOUBLE}
+  		    AND G.GOODS_PRICE <= #{tallPrice,jdbcType = DOUBLE}
   		</if>
   </select>
   
