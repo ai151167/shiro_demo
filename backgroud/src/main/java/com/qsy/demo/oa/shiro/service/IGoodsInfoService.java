@@ -6,14 +6,15 @@ import java.util.Map;
 
 import com.qsy.demo.oa.shiro.commonparam.GoodsInfoOperation;
 import com.qsy.demo.oa.shiro.commonparam.GoodsInfoParam;
+import com.qsy.demo.oa.shiro.entity.GoodsInfo;
 
 public interface IGoodsInfoService {
 
-	Map<String,Object> goodsInfoList(GoodsInfoParam param);
+	Map<String,Object> goodsInfoList();
 
 	String addGoodsInfo(GoodsInfoOperation goodsInfo);
 
-	GoodsInfoOperation goodsInfo(Integer goodsId);
+	GoodsInfo goodsInfo(Integer goodsId);
 
 	String updateGoodsInfo(GoodsInfoOperation goodsInfo);
 

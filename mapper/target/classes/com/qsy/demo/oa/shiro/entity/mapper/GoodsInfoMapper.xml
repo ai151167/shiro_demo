@@ -335,34 +335,34 @@
   		1=1
   		<if test="sortId != null and sortId != '' ">
   		    AND	 G.GOODS_ID = S.GOODS_ID
-  		    AND S.SORT_ID = #{sortId,jdbcType = INTEGER}
+  		    AND S.SORT_ID = #{sortId,jdbcType = BIGINT}
   		</if>
   		<if test="goodsName != null and goodsName != '' ">
-  		    AND (G.GOODS_NAME LIKE CONCAT ('%','#{goodsName,jdbcType = VARCHAR}','%') 
+  		    AND G.GOODS_NAME LIKE CONCAT ('%','#{goodsName,jdbcType = VARCHAR}','%') 
   		    OR
-  		    G.GOODS_DESC LIKE CONCAT ('%','#{goodsName,jdbcType = VARCHAR}','%') )
+  		    G.GOODS_DESC LIKE CONCAT ('%','#{goodsName,jdbcType = VARCHAR}','%') 
   		</if>
   		<if test="goodsCount != null and goodsCount != '' ">
-  		    AND G.GOODS_COUNT = #{goodsCount,jdbcType = INTEGER}
+  		    AND G.GOODS_COUNT = #{goodsCount,jdbcType = BIGINT}
   		</if>
   		<if test="lowCount != null and lowCount != '' ">
-  		    AND G.GOODS_COUNT &gt; #{lowCount,jdbcType = INTEGER}
+  		    AND G.GOODS_COUNT >= #{lowCount,jdbcType = BIGINT}
   		</if>
   		<if test="tallCount != null and tallCount != '' ">
-  		    AND G.GOODS_COUNT &lt; #{tallCount,jdbcType = INTEGER}
+  		    AND G.GOODS_COUNT <= #{tallCount,jdbcType = BIGINT}
   		</if>
   		<if test="goodsPrice != null and goodsPrice != '' ">
   		    AND G.GOODS_PRICE = #{goodsPrice,jdbcType = DOUBLE}
   		</if>
   		<if test="lowPrice != null and lowPrice != '' ">
-  		    AND G.GOODS_PRICE &gt; #{lowPrice,jdbcType = DOUBLE}
+  		    AND G.GOODS_PRICE >= #{lowPrice,jdbcType = DOUBLE}
   		</if>
   		<if test="tallPrice != null and tallPrice != '' ">
-  		    AND G.GOODS_PRICE &lt; #{tallPrice,jdbcType = DOUBLE}
+  		    AND G.GOODS_PRICE <= #{tallPrice,jdbcType = DOUBLE}
   		</if>
   		ORDER BY
   		G.GOODS_ID ASC
-  		LIMIT #{start,jdbcType = INTEGER},#{pageSize,jdbcType = INTEGER};
+  		LIMIT #{start,jdbcType = BIGINT},#{pageSize,jdbcType = BIGINT};
   </select>
   
   <select id="selectCountByGoodsCondition" parameterType="com.qsy.demo.oa.shiro.commonparam.GoodsInfoParam" resultMap="java.lang.Integer">
@@ -374,7 +374,7 @@
   		1=1
   		<if test="sortId != null and sortId != '' ">
   		    AND	 G.GOODS_ID = S.GOODS_ID
-  		    AND S.SORT_ID = #{sortId,jdbcType = INTEGER}
+  		    AND S.SORT_ID = #{sortId,jdbcType = BIGINT}
   		</if>
   		<if test="goodsName != null and goodsName != '' ">
   		    AND G.GOODS_NAME LIKE CONCAT ('%','#{goodsName,jdbcType = VARCHAR}','%') 
@@ -382,22 +382,22 @@
   		    G.GOODS_DESC LIKE CONCAT ('%','#{goodsName,jdbcType = VARCHAR}','%') 
   		</if>
   		<if test="goodsCount != null and goodsCount != '' ">
-  		    AND G.GOODS_COUNT = #{goodsCount,jdbcType = INTEGER}
+  		    AND G.GOODS_COUNT = #{goodsCount,jdbcType = BIGINT}
   		</if>
   		<if test="lowCount != null and lowCount != '' ">
-  		    AND G.GOODS_COUNT &gt; #{lowCount,jdbcType = INTEGER}
+  		    AND G.GOODS_COUNT >= #{lowCount,jdbcType = BIGINT}
   		</if>
   		<if test="tallCount != null and tallCount != '' ">
-  		    AND G.GOODS_COUNT &lt; #{tallCount,jdbcType = INTEGER}
+  		    AND G.GOODS_COUNT <= #{tallCount,jdbcType = BIGINT}
   		</if>
   		<if test="goodsPrice != null and goodsPrice != '' ">
   		    AND G.GOODS_PRICE = #{goodsPrice,jdbcType = DOUBLE}
   		</if>
   		<if test="lowPrice != null and lowPrice != '' ">
-  		    AND G.GOODS_PRICE &lt; #{lowPrice,jdbcType = DOUBLE}
+  		    AND G.GOODS_PRICE >= #{lowPrice,jdbcType = DOUBLE}
   		</if>
   		<if test="tallPrice != null and tallPrice != '' ">
-  		    AND G.GOODS_PRICE &gt; #{tallPrice,jdbcType = DOUBLE}
+  		    AND G.GOODS_PRICE <= #{tallPrice,jdbcType = DOUBLE}
   		</if>
   </select>
   
@@ -464,7 +464,7 @@
   	sort_info S
   	ON
   	R.SORT_ID = S.SORT_ID
-  	AND G.GOODS_ID = #{goodsId,jdbcType=INTEGER}
+  	AND G.GOODS_ID = #{goodsId,jdbcType="BIGINT"}
   </select>
   
   <update id="updateGoodsInfo" parameterType = "com.qsy.demo.oa.shiro.commonparam.GoodsInfoOperation">

@@ -6,17 +6,17 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.ModelMap;
 
 import com.qsy.demo.oa.shiro.commonparam.GoodsInfoOperation;
 import com.qsy.demo.oa.shiro.commonparam.GoodsInfoParam;
 import com.qsy.demo.oa.shiro.entity.GoodsInfo;
+import com.qsy.demo.oa.shiro.entity.GoodsInfoExample;
 import com.qsy.demo.oa.shiro.entity.GoodsSortRelation;
 import com.qsy.demo.oa.shiro.entity.mapper.GoodsInfoMapper;
 import com.qsy.demo.oa.shiro.entity.mapper.GoodsSortRelationMapper;
 import com.qsy.demo.oa.shiro.service.IGoodsInfoService;
 
-@Service("goodsInfoService")
+@Service
 public class GoodsInfoServiceImpl implements IGoodsInfoService {
 
 	@Autowired
@@ -29,16 +29,13 @@ public class GoodsInfoServiceImpl implements IGoodsInfoService {
 	 * 集合
 	 */
 	@Override
-	public Map<String,Object> goodsInfoList(GoodsInfoParam param) {
+	public Map<String,Object> goodsInfoList() {
 		System.out.println("2222");
 		Map<String,Object> result = new HashMap<>();
-		List<GoodsInfo> goodsInfos =  goodsInfoMapper.selectByGoodsCondition(param);
+		GoodsInfoExample example = new GoodsInfoExample();
+		List<GoodsInfo> goodsInfos =  goodsInfoMapper.selectByExample(example );
 		System.out.println("3333");
-		Integer count = count(param);
-		Integer pages =pages(count, param.getPageSize());
 		result.put("goodsInfos", goodsInfos);
-		result.put("count", count);
-		result.put("pages", pages);
 		return result;
 		
 	}
@@ -48,8 +45,8 @@ public class GoodsInfoServiceImpl implements IGoodsInfoService {
 	 * @param param
 	 * @return
 	 */
-	protected Integer count(GoodsInfoParam param) {
-		return goodsInfoMapper.selectCountByGoodsCondition(param);
+	protected Integer count() {
+		return null;
 	}
 	
 	/**
@@ -72,7 +69,7 @@ public class GoodsInfoServiceImpl implements IGoodsInfoService {
 	@Override
 	public String addGoodsInfo(GoodsInfoOperation goodsInfo) {
 		Integer sortId = goodsInfo.getSortId();
-		Integer goodsId = goodsInfoMapper.addGoodsInfo(goodsInfo);
+		Integer goodsId = goodsInfoMapper.insert(goodsInfo);
 		if(goodsId>0) {
 			GoodsSortRelation rel = new GoodsSortRelation();
 			rel.setGoodsId(goodsId);
@@ -91,8 +88,8 @@ public class GoodsInfoServiceImpl implements IGoodsInfoService {
 	 * @return
 	 */
 	@Override
-	public GoodsInfoOperation goodsInfo(Integer goodsId) {
-		return goodsInfoMapper.goodsInfo(goodsId);
+	public GoodsInfo goodsInfo(Integer goodsId) {
+		return goodsInfoMapper.selectByPrimaryKey(goodsId);
 	}
 
 	/**
@@ -104,7 +101,6 @@ public class GoodsInfoServiceImpl implements IGoodsInfoService {
 	
 	@Override
 	public String updateGoodsInfo(GoodsInfoOperation goodsInfo) {
-		goodsInfoMapper.updateGoodsInfo(goodsInfo);
 		if(goodsInfo.getSortId()!=null&&!"".equals(goodsInfo.getSortId().toString())) {
 			GoodsSortRelation rel = new GoodsSortRelation();
 			rel.setGoodsId(goodsInfo.getGoodsId());

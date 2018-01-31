@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.qsy.demo.oa.shiro.commonparam.GoodsInfoOperation;
 import com.qsy.demo.oa.shiro.commonparam.GoodsInfoParam;
+import com.qsy.demo.oa.shiro.entity.GoodsInfo;
 import com.qsy.demo.oa.shiro.service.IGoodsInfoService;
 
 @Controller
@@ -18,7 +19,7 @@ import com.qsy.demo.oa.shiro.service.IGoodsInfoService;
 public class GoodsController {
 
 	@Autowired
-	private IGoodsInfoService goodsInfoService;
+	private IGoodsInfoService goodsInfoServiceImpl;
 
 	@RequestMapping("/goods")
 	public String goodsInfo() {
@@ -34,7 +35,7 @@ public class GoodsController {
 	@RequestMapping("/goodsInfoList")
 	public String goodsInfoList(GoodsInfoParam param,ModelMap map) {
 		System.out.println("11111");
-		Map<String,Object> result = goodsInfoService.goodsInfoList(param);
+		Map<String,Object> result = goodsInfoServiceImpl.goodsInfoList();
 		map.put("goodsList", result.get("goodsInfos"));
 		map.put("count", result.get("count"));
 		map.put("pages", result.get("pages"));
@@ -45,24 +46,24 @@ public class GoodsController {
 	@ResponseBody
 	@RequestMapping("/addGoodsInfo")
 	public String addGoodsInfo(GoodsInfoOperation goodsInfo) {
-		return goodsInfoService.addGoodsInfo(goodsInfo);
+		return goodsInfoServiceImpl.addGoodsInfo(goodsInfo);
 	}
 
 	@ResponseBody
 	@RequestMapping("/goodsInfo")
-	public GoodsInfoOperation goodsInfo(Integer goodsId) {
-		return goodsInfoService.goodsInfo(goodsId);
+	public GoodsInfo goodsInfo(Integer goodsId) {
+		return goodsInfoServiceImpl.goodsInfo(goodsId);
 	}
 
 	@ResponseBody
 	@RequestMapping("/updateGoodsInfo")
 	public String updateGoodsInfo(GoodsInfoOperation goodsInfo) {
-		return goodsInfoService.updateGoodsInfo(goodsInfo);
+		return goodsInfoServiceImpl.updateGoodsInfo(goodsInfo);
 	}
 
 	@ResponseBody
 	@RequestMapping("/deleteGoodsInfo")
 	public String deleteGoodsInfo(Integer goodsId) {
-		return goodsInfoService.deleteGoodsInfo(goodsId);
+		return goodsInfoServiceImpl.deleteGoodsInfo(goodsId);
 	}
 }
