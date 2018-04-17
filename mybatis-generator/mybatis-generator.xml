@@ -31,14 +31,14 @@
 			<property name="enableSubPackages" value="true" />
 		</javaClientGenerator>
 
-		<table tableName="goods_info"></table>
+		<!-- <table tableName="goods_info"></table>
 		<table tableName="role"></table> 
-		<table tableName="sort_info"></table>
+		<table tableName="sort_info"></table> -->
 		<table tableName="permission"></table>
-		<table tableName="user"></table> 
+		<!-- <table tableName="user"></table> 
 		<table tableName="goods_sort_relation"></table>
 		<table tableName="role_permission_relation"></table>
-		<table tableName="user_role_relation"></table> 
+		<table tableName="user_role_relation"></table>  -->
 		
 	</context>
 </generatorConfiguration>
