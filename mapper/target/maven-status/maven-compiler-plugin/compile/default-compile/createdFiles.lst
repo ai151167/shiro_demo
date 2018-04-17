@@ -1,8 +1,0 @@
-com\qsy\demo\oa\shiro\entity\mapper\RolePermissionRelationMapper.class
-com\qsy\demo\oa\shiro\entity\mapper\UserRoleRelationMapper.class
-com\qsy\demo\oa\shiro\entity\mapper\GoodsInfoMapper.class
-com\qsy\demo\oa\shiro\entity\mapper\GoodsSortRelationMapper.class
-com\qsy\demo\oa\shiro\entity\mapper\UserMapper.class
-com\qsy\demo\oa\shiro\entity\mapper\RoleMapper.class
-com\qsy\demo\oa\shiro\entity\mapper\SortInfoMapper.class
-com\qsy\demo\oa\shiro\entity\mapper\PermissionMapper.class
